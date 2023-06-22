@@ -1,5 +1,7 @@
 'use strict';
 
+const player0 = document.querySelector('.player--0');
+const player1 = document.querySelector('.player--1');
 const p0Score = document.querySelector('#score--0');
 //we can select id by using getElementById
 const p1Score = document.getElementById('score--1');
@@ -14,6 +16,8 @@ const holdBtn = document.querySelector('.btn--hold');
 
 //store current score
 let currentScore = 0;
+let activePlayer = 0;
+const scores =[0,0];
 
 
 p0Score.textContent = 0;
@@ -29,10 +33,15 @@ rollBtn.addEventListener('click', function(){
 
   if(randomDice !== 1){
     currentScore += randomDice;
-    p0CurrentScore.textContent = currentScore; 
+    // p0CurrentScore.textContent = currentScore;
+    document.getElementById(`current--${activePlayer}`).textContent = currentScore;
   }
   else{
-    
+    document.getElementById(`current--${activePlayer}`).textContent = 0;
+    currentScore = 0;
+    activePlayer = activePlayer === 0 ? 1 : 0;
+    player0.classList.toggle('player--active');
+    player1.classList.toggle('player--active');
   }
 })
 
