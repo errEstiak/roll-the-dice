@@ -27,10 +27,12 @@ dice.classList.add('hidden');
 rollBtn.addEventListener('click', function(){
   dice.classList.remove('hidden');
   
+  //randomizing the dice roll
   const randomDice = Math.trunc (Math.random() * 6) + 1;
   console.log(randomDice);
   dice.src = `img/dice-${randomDice}.png`
 
+  //if dice show 1 changing the player otherwise adding score to current
   if(randomDice !== 1){
     currentScore += randomDice;
     // p0CurrentScore.textContent = currentScore;
