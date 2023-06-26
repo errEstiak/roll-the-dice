@@ -34,7 +34,7 @@ rollBtn.addEventListener('click', function(){
 
   //if dice show 1 changing the player otherwise adding score to current
   if(randomDice !== 1){
-    currentScore += randomDice;
+    currentScore = currentScore + randomDice;
     // p0CurrentScore.textContent = currentScore;
     document.getElementById(`current--${activePlayer}`).textContent = currentScore;
   }
